@@ -6,10 +6,22 @@
   <% if current_user %>
 
     <p>Logged in as <%= current_user.email %></p>
-    <%= link_to 'Logout', logout_path, method: :delete %>
+    <p> Please Create your Post Fom Here </p>  
+    <%= link_to 'Create New Post ', new_post_path %><br><br>
+    <%= link_to 'My Post ', my_post_path  %><br><br> 
+    <%= link_to 'Log out', logout_path, method: :delete %><br><br>
+
+    
+    <% @posts.each do |post| %>
+    <hr><h4> TITLE: <b> <%= post.title %></b> </h4> 
+    <h4> CONTENT: <b> <%= post.content %></b> </h4>
+    <%= link_to 'New Comment', new_post_comment_path(post)%><br>
+    <b> Total Comments : </b> <%= post.comments.count %><hr> 
+    <% end %>
+
   <% else %>
-    <%= link_to 'Login', new_session_path, class: 'btn btn-primary' %>
-    <%= link_to 'Sign up', new_user_path %>
+    <%= link_to 'Log In', new_session_path, class: 'btn btn-primary' %><br><br>
+    <%= link_to 'Sign Up', new_user_path %>
   <% end %>
 
 </center>

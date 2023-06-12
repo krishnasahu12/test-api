@@ -9,14 +9,17 @@ class SessionsController < ApplicationController
 
     if @user 
       session[:user_id] = @user.id
-      render json: {message: 'User Signed In Successfully', data: @user}, status: :ok
+        redirect_to root_path
+      # render json: {message: 'User Signed In Successfully', data: @user}, status: :ok
     else
-      render json: {message: 'Please Sign Up First'}, status: :bad_request  
+      render new
+      # render json: {message: 'Please Sign Up First'}, status: :bad_request  
     end
   end
 
   def destroy
     session[:user_id] = nil
-    render json: {message: 'User Signed Out Successfully'}, status: :ok
+      redirect_to root_path
+    # render json: {message: 'User Signed Out Successfully'}, status: :ok
   end
 end
