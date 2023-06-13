@@ -4,11 +4,11 @@ class UsersController < ApplicationController
 
     def index
         @users = User.all
-      #   if @users
-      #    render json: {message: "FETCHED ALL THE USERS SUCCESSFULLY", data: @users}, status: :ok
-      #   else
-      #    render json: {message: @users.errors}, status: :bad_request
-      #   end
+         # if @users
+         #  render json: {message: "FETCHED ALL THE USERS SUCCESSFULLY", data: @users}, status: :ok
+         # else
+         #  render json: {message: @users.errors}, status: :bad_request
+         # end
     end  
 
     def new 
@@ -20,10 +20,10 @@ class UsersController < ApplicationController
 
        if @user.save
          redirect_to root_path
-      #   render json: {message: 'User Created Successfully', data: @user}, status: :ok
+        # render json: {message: 'User Created Successfully', data: @user}, status: :ok
        else
          render new
-         # render json: {message: 'User Not Created'}, status: :unproccessable_entity
+          # render json: {message: 'User Not Created'}, status: :unproccessable_entity
        end
     end
 

@@ -1,7 +1,8 @@
 class CommentsController < ApplicationController
 
 	def index
-     @comments = Comment.all
+	   @post = Post.find(params[:post_id])
+	   @comments = @post.comments
 	end
 
 	def new
@@ -21,15 +22,6 @@ class CommentsController < ApplicationController
 		    render new
 		 end
 	end
-
-
-	def show
-      @comment = current_user.comments
-	end
-
-
-
-
 
 
 private

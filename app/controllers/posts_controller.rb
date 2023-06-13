@@ -16,7 +16,8 @@ class PostsController < ApplicationController
 	end
 
 	def show
-    	@post = current_user.posts
+		debugger
+    	@post = Post.find(params[:id])
 	end
 
 
